@@ -1,0 +1,60 @@
+﻿{% extends "layout.html" %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<h2>当前版本号</h2>
+<div class="row">
+<table class="table table-bordered">
+  <tr>
+    <td><strong>版本号</strong></td>
+    <td><strong>类型</strong></td>
+    <td><strong>删除</strong></td>
+  </tr>
+{% for line in lines %}  
+  <tr> 
+     <td>{{ line.version }}</td> 
+     {% ifequal line.ttype 1 %}<td>审核</td> {% endifequal %}
+     {% ifequal line.ttype 2 %}<td>屏蔽</td> {% endifequal %}
+     <td>删除</td>
+  </tr>
+{% endfor %}    
+</table>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <section id="VersionForm">
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4>请输入有效的游戏版本号</h4>
+                {% bootstrap_form form label_class='col-sm-2' field_class='col-md-10' %}
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="提交" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">请输入有效的游戏版本号.</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+
+<div class="row">
+<div class="panel panel-primary">
+  <div class="panel-heading">执行结果</div>
+  <div class="panel-body">
+    {% if result %}
+      {{ result }}
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

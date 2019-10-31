@@ -1,0 +1,104 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace laungh
+{
+    /// <summary>
+    /// 按照步骤 1a 或 1b 操作，然后执行步骤 2 以在 XAML 文件中使用此自定义控件。
+    ///
+    /// 步骤 1a) 在当前项目中存在的 XAML 文件中使用该自定义控件。
+    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根 
+    /// 元素中: 
+    ///
+    ///     xmlns:MyNamespace="clr-namespace:laungh"
+    ///
+    ///
+    /// 步骤 1b) 在其他项目中存在的 XAML 文件中使用该自定义控件。
+    /// 将此 XmlNamespace 特性添加到要使用该特性的标记文件的根 
+    /// 元素中: 
+    ///
+    ///     xmlns:MyNamespace="clr-namespace:laungh;assembly=laungh"
+    ///
+    /// 您还需要添加一个从 XAML 文件所在的项目到此项目的项目引用，
+    /// 并重新生成以避免编译错误: 
+    ///
+    ///     在解决方案资源管理器中右击目标项目，然后依次单击
+    ///     “添加引用”->“项目”->[浏览查找并选择此项目]
+    ///
+    ///
+    /// 步骤 2)
+    /// 继续操作并在 XAML 文件中使用控件。
+    ///
+    ///     <MyNamespace:imageButton/>
+    ///
+    /// </summary>
+    public class ImageButton : Button
+    {
+        static ImageButton()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ImageButton), new FrameworkPropertyMetadata(typeof(ImageButton)));//去掉默认属性
+        }
+
+        #region Dependency Properties
+
+        public string NormalImage
+        {
+            get { return (string)GetValue(NormalImageProperty); }
+            set { SetValue(NormalImageProperty, value); }
+        }
+
+        public static readonly DependencyProperty NormalImageProperty =
+            DependencyProperty.Register("NormalImage", typeof(string), typeof(ImageButton),
+            new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender, ImageSourceChanged));
+
+        public string HoverImage
+        {
+            get { return (string)GetValue(HoverImageProperty); }
+            set { SetValue(HoverImageProperty, value); }
+        }
+
+        public static readonly DependencyProperty HoverImageProperty =
+            DependencyProperty.Register("HoverImage", typeof(string), typeof(ImageButton),
+            new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender, ImageSourceChanged));
+
+        public string PressedImage
+        {
+            get { return (string)GetValue(PressedImageProperty); }
+            set { SetValue(PressedImageProperty, value); }
+        }
+
+        public static readonly DependencyProperty PressedImageProperty =
+            DependencyProperty.Register("PressedImage", typeof(string), typeof(ImageButton),
+            new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender, ImageSourceChanged));
+
+        public string DisabledImage
+        {
+            get { return (string)GetValue(DisabledImageProperty); }
+            set { SetValue(DisabledImageProperty, value); }
+        }
+
+        public static readonly DependencyProperty DisabledImageProperty =
+            DependencyProperty.Register("DisabledImage", typeof(string), typeof(ImageButton),
+            new FrameworkPropertyMetadata("", FrameworkPropertyMetadataOptions.AffectsRender, ImageSourceChanged));
+
+        //依赖属性发生改变时候触发
+        private static void ImageSourceChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            Application.GetResourceStream(new Uri("pack://application:,,," + (string)e.NewValue));
+        }
+
+        #endregion
+    }
+}

@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>8e556bee-8d17-4abb-9ade-5ea36870c032</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>server.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>server</Name>
+    <RootNamespace>server</RootNamespace>
+    <InterpreterId>
+    </InterpreterId>
+    <InterpreterVersion>
+    </InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\application.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="change_country.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="convertmap.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="create_challenge.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="create_libao.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\account\change_name_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\account\login_platform_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_buy_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_fail_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_rank_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_replay_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_start_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_success_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\challenge_view_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\challenge\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\charge\facebook_pay_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\charge\google_pay_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\charge\pay_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\download_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\huodong\libao_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\huodong\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\async_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\like_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="import_map.py" />
+    <Compile Include="model\cache_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="upload.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\auth.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\client.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\executer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="constant\const.py" />
+    <Compile Include="constant\error.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="constant\game.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="constant\tag.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="constant\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="google\protobuf\compiler\plugin_pb2.py" />
+    <Compile Include="google\protobuf\compiler\__init__.py" />
+    <Compile Include="google\protobuf\descriptor.py" />
+    <Compile Include="google\protobuf\descriptor_database.py" />
+    <Compile Include="google\protobuf\descriptor_pb2.py" />
+    <Compile Include="google\protobuf\descriptor_pool.py" />
+    <Compile Include="google\protobuf\internal\api_implementation.py" />
+    <Compile Include="google\protobuf\internal\containers.py" />
+    <Compile Include="google\protobuf\internal\cpp_message.py" />
+    <Compile Include="google\protobuf\internal\decoder.py" />
+    <Compile Include="google\protobuf\internal\encoder.py" />
+    <Compile Include="google\protobuf\internal\enum_type_wrapper.py" />
+    <Compile Include="google\protobuf\internal\message_listener.py" />
+    <Compile Include="google\protobuf\internal\python_message.py" />
+    <Compile Include="google\protobuf\internal\type_checkers.py" />
+    <Compile Include="google\protobuf\internal\wire_format.py" />
+    <Compile Include="google\protobuf\internal\__init__.py" />
+    <Compile Include="google\protobuf\message.py" />
+    <Compile Include="google\protobuf\message_factory.py" />
+    <Compile Include="google\protobuf\reflection.py" />
+    <Compile Include="google\protobuf\service.py" />
+    <Compile Include="google\protobuf\service_reflection.py" />
+    <Compile Include="google\protobuf\text_format.py" />
+    <Compile Include="google\protobuf\__init__.py" />
+    <Compile Include="google\__init__.py" />
+    <Compile Include="handler\account\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\account\change_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\thread_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\charge\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\guide_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\name_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\comment_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\complete_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\create_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\delete_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\favourite_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\account\login_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\account\bind_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\edit_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\play_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\save_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\search_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\charge\shop_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\upload_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\edit\view_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\map_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\player_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\rank_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\play\video_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="handler\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\global_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\map_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\template.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\user_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\platform.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\script.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\game_data.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="model\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\msg_pb2.py" />
+    <Compile Include="utility\msg_factory.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="server.py" />
+    <Compile Include="utility\dbc.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\util.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="utility\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="constant\" />
+    <Folder Include="google\" />
+    <Folder Include="google\protobuf\" />
+    <Folder Include="google\protobuf\compiler\" />
+    <Folder Include="google\protobuf\internal\" />
+    <Folder Include="handler\" />
+    <Folder Include="app\" />
+    <Folder Include="handler\account\" />
+    <Folder Include="handler\edit\" />
+    <Folder Include="handler\charge\" />
+    <Folder Include="handler\huodong\" />
+    <Folder Include="handler\challenge\" />
+    <Folder Include="handler\play\" />
+    <Folder Include="model\" />
+    <Folder Include="utility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="install.sh" />
+    <Content Include="logging.yaml" />
+    <Content Include="nginx.conf" />
+    <Content Include="pay.sql" />
+    <Content Include="settings.conf" />
+    <Content Include="supervisor.conf" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

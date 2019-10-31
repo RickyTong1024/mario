@@ -1,0 +1,6 @@
+<uwsgi>
+    <socket>:8060</socket>
+    <chdir>/root/app/backend</chdir>
+    <pythonpath>/usr/local/bin/python2.7</pythonpath>
+    <module>wsgi</module>
+</uwsgi>

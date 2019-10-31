@@ -1,0 +1,564 @@
+package protocol.game;
+
+message msg_common {
+	required int32  userid			= 1;
+	required int32  pck_id			= 2;
+	required string sig				= 3;
+}
+
+message msg_response {
+	optional int32  res				= 1;
+	optional bytes  error			= 2;
+	optional bytes	msg				= 3;
+}
+
+message msg_life_error {
+	optional uint64 server_time     = 1;
+	optional uint64 life_time		= 2;
+}
+
+message cmsg_login {
+	optional string openid			= 1;
+	optional string openkey			= 2;
+	optional string nationality		= 3;
+	optional string ver				= 4;
+	optional string channel         = 5;
+}
+
+message cmsg_login_android {
+	optional string userid			= 1;
+	optional string token			= 2;
+	optional string channel		    = 3;
+	optional string nationality		= 4;
+	optional string ver				= 5;
+}
+
+message smsg_login {
+	optional string openid			= 1;
+	optional string openkey			= 2;
+	optional string sig				= 3;
+	optional int32  userid			= 4;
+	optional string name			= 5;
+	optional string nationality		= 6;
+	optional int32  visitor			= 7;
+	optional int32  head			= 8;
+	optional int32	level			= 9;
+	optional int32  exp				= 10;
+	optional int32  life			= 11;
+	optional int32  jewel			= 12;
+	optional uint64 server_time		= 13;
+	optional uint64 life_time  		= 14;
+	optional int32  upload			= 15;
+	optional int32  testify			= 16;
+	optional uint64 exp_time		= 17;
+	optional int32  guide			= 18;
+	optional int32  mapid		    = 19;
+	optional int32  support			= 20;
+	optional int32  review			= 21;
+	optional string notify_uri      = 22;
+	optional int32  init_life       = 23;
+	optional int32  life_per_time   = 24;
+	optional int32  challenge_start = 25;
+	optional int32  download_num    = 26;
+	optional int32  download_max    = 27;
+}
+
+message cmsg_register {
+	required msg_common common		= 1;
+	optional string openid			= 2;
+	optional string openkey			= 3;
+	optional string nationality		= 4;
+	optional string	nickname		= 5;
+	optional int32	head			= 6;
+}
+
+message cmsg_change_account {
+	required msg_common common		= 1;
+	optional string openid  		= 2;
+	optional string openkey 		= 3;
+	optional string channel         = 4;
+}
+
+message cmsg_change_name {
+	required msg_common common		= 1;
+	optional int32      head        = 2;
+	optional string     nickname    = 3;
+	optional string     nationality = 4;
+}
+
+message cmsg_view_map {
+	required msg_common common		= 1;
+	optional int32		type		= 2;
+	optional int32		index		= 3;
+	optional int32      ver         = 4;
+}
+
+message map_show {
+	optional int32  id 			= 1;
+	optional string name  		= 2;
+	optional bytes  url  		= 3;
+	optional int32  amount		= 4;
+	optional int32	pas			= 5;
+	optional int32  collect		= 6;
+	optional int32  finish		= 7;
+	optional int32  difficulty  = 8;
+	optional int32  like        = 9;
+}
+
+message smsg_view_map {
+	repeated map_show	infos	= 1;
+	optional int32		page	= 2;
+}
+
+
+message cmsg_view_comment {
+	required msg_common common		= 1;
+	required int32	id				= 2;
+}
+
+message comment {
+	optional int32  	head	= 1;
+	optional string 	name	= 2;
+	optional string 	country	= 3;
+	optional string 	text	= 4;
+	optional string 	date    = 5;
+	optional int32		userid  = 6;
+	optional int32  	visitor = 7;
+}
+
+message map_info {
+	optional int32  id 			= 1;
+	optional string name  		= 2;
+	optional bytes  url  		= 3;
+	optional int32 	owner_id	= 4;
+	optional string owner_name 	= 5;
+	optional string country 	= 6;
+	optional int32	head		= 7;
+	optional int32  favorite 	= 8;
+	optional int32	amount   	= 9;
+	optional int32  pas			= 10;
+	optional string date		= 11;
+	optional int32  collect		= 12;
+	optional int32  finish		= 13;
+	optional int32  difficulty  = 14;
+	optional int32  like        = 15;
+}
+
+message smsg_view_comment {
+	repeated comment  	comments	= 1;
+	required map_info	infos		= 2;
+}
+
+message cmsg_comment {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+	required string     text		= 3;
+}
+
+message smsg_comment {
+	required comment	comment		= 1;
+}
+
+message cmsg_search_map {
+	required msg_common common		= 1;
+	required string		name		= 2;
+}
+
+message cmsg_favorite_map {
+	required msg_common common		= 1;
+	required int32	id				= 2;
+}
+
+message smsg_favorite_map {
+	required int32  num				= 1;
+}
+
+message cmsg_play_map {
+	required msg_common common		= 1;
+	required int32	id				= 2;
+}
+
+message cmsg_replay_map {
+	required msg_common common		= 1;
+}
+
+message smsg_play_map {
+	required bytes	map_data		= 1;
+	repeated int32	x				= 2;
+	repeated int32  y				= 3;
+}
+
+message cmsg_complete_map {
+	required msg_common common		= 1;
+	required int32	suc				= 3;
+	optional int32	x				= 4;
+	optional int32  y				= 5;
+	optional int32  point			= 6;
+	optional bytes	video			= 7;
+	optional int32  time            = 8;
+}
+
+message smsg_complete_map {
+	optional int32	exp				= 1;
+	optional int32  rank			= 2;
+	optional int32  testify			= 3;
+	optional int32  extra_exp		= 4;
+	optional int32  mapid			= 5;
+	optional int32  support			= 6;
+}
+
+message cmsg_view_edit {
+	required msg_common common		= 1;
+}
+
+message edit_data {
+	optional int32  id		= 1;
+	optional string name 	= 2;
+	optional bytes  url		= 3;
+	optional string date	= 4;
+	optional int32	upload  = 5;
+}
+
+message smsg_view_edit {
+	repeated edit_data	infos = 1;
+	optional int32		exp   = 2;
+	optional int32		level = 3;
+}
+
+message cmsg_create_map {
+	required msg_common common		= 1;
+	required int32		index		= 2;
+}
+
+message smsg_create_map {
+	required edit_data map			= 1;
+}
+
+message cmsg_play_edit_map {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+}
+
+message smsg_play_edit_map {
+	required bytes		mapdata		= 1;
+}
+
+message cmsg_save_map {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+	required bytes		url			= 3;
+	required bytes		mapdata		= 4;
+}
+
+message cmsg_change_map_name {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+	required string		name		= 3;
+}
+
+message cmsg_upload_map {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+	optional int32      ver         = 3;
+	optional bytes      video       = 4;
+	optional int32      time        = 5;
+}
+
+message cmsg_delete_map {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+}
+
+message map_point_rank {
+	optional string  player_name	= 1;
+	optional int32   player_point	= 2;
+	optional int32   player_level	= 3;
+	optional string  player_country = 4;
+	optional int32   video_id		= 5;
+	optional int32	 user_id		= 6;
+	optional int32	 visitor		= 7;
+}
+
+message cmsg_view_map_point_rank {
+	required msg_common common		= 1;
+	required int32		map_id		= 2;
+}
+
+message smsg_view_map_point_rank {
+	repeated map_point_rank  ranks		= 1;
+}
+
+message cmsg_view_video {
+	required msg_common common		= 1;
+	required int32 map_id			= 2;
+	required int32 video_id			= 3;
+}
+
+message smsg_view_video {
+	required bytes			video_data	= 1;
+	required bytes			map_data 	= 2;
+}
+
+message cmsg_view_edit_single {
+	required msg_common common		= 1;
+	required int32	map_id			= 2;
+}
+
+message smsg_view_edit_single {
+	required edit_data	info		= 1;
+}
+
+message cmsg_shop_buy {
+	required msg_common common		= 1;
+	required int32		id			= 2;
+	optional bytes      receipt     = 3;
+}
+
+message player_data {
+	optional int32      userid 		= 1;
+	optional string     name		= 2;
+	optional string 	country		= 3;
+	optional int32		head		= 4;
+	optional int32		level		= 5;
+	optional int32		exp			= 6;
+	optional string     register	= 7;
+	optional int32		amount		= 8;
+	optional int32		pas			= 9;
+	optional int32		point		= 10;
+	optional int32      comment		= 11;
+	optional int32		video		= 12;
+	optional int32		visitor		= 13;
+	optional int32		watched		= 14;
+	optional int32		mlevel		= 15;
+	optional int32		mexp		= 16;
+}
+
+message map_recent {
+	optional int32  id 			= 1;
+	optional string  name  		= 2;
+	optional bytes  url  		= 3;
+	optional string time		= 4;
+	optional int32  rank		= 5;
+}
+
+message map_upload {
+	optional int32  id 			= 1;
+	optional string  name  		= 2;
+	optional bytes  url  		= 3;
+	optional string time		= 4;
+}
+
+message map_top {
+	optional int32  id 			= 1;
+	optional string  name  		= 2;
+	optional bytes  url  		= 3;
+	optional int32  rank		= 4;
+}
+
+message map_play {
+	optional int32  id 			= 1;
+	optional string  name  		= 2;
+	optional bytes  url  		= 3;
+	optional int32  play		= 4;
+}
+
+message cmsg_view_player {
+	required msg_common common		= 1;
+	required int32		userid		= 2;
+}
+
+message smsg_view_player {
+	required player_data	data		= 1;
+	repeated map_recent		recent	    = 2;
+	repeated map_upload		upload		= 3;
+	repeated map_top		top			= 4;
+	repeated map_play		play		= 5;
+}
+
+message cmsg_complete_guide {
+	required msg_common common		= 1;
+	required bytes		url			= 2;
+	required bytes		data		= 3;
+}
+
+message cmsg_pay {
+	required msg_common common			= 1;
+	required string channel             = 2;
+}
+
+message smsg_pay {
+	optional int32      jewel           = 1;
+}
+
+message cmsg_libao {
+	required msg_common common			= 1;
+	required string     code            = 2;
+}
+
+message smsg_libao {
+	optional int32      life            = 1;
+}
+
+message cmsg_challenge_view {
+	required msg_common common			= 1;
+}
+
+message smsg_challenge_view {
+	optional int32 index                = 1;
+	optional int32 top                  = 2;
+	optional int32 life                 = 3;
+	optional int32 start		        = 4;
+	optional int32 exp                  = 5;
+	optional string date                = 6;
+	optional string subject             = 7;
+	optional int32 life_num             = 8;
+	optional int32 jewel                = 9;
+}
+
+message cmsg_challenge_start {
+	required msg_common common			= 1;
+}
+
+message cmsg_challenge_continue {
+	required msg_common common			= 1;
+}
+
+message cmsg_challenge_replay {
+	required msg_common common			= 1;
+}
+
+message cmsg_challenge_fail {
+	required msg_common common			= 1;
+	optional int32      x				= 2;
+	optional int32      y               = 3;
+}
+
+message cmsg_challenge_success {
+	required msg_common common			= 1;
+	optional int32      point		    = 2;
+	optional int32      time            = 3;
+}
+
+message smsg_challenge_play {
+	optional int32      user_head        = 1;
+	optional string     user_name        = 2;
+	optional string     user_country     = 3;
+	optional string     map_name         = 4;
+	optional bytes      map_data		 = 5;
+	repeated int32		x				 = 6;
+	repeated int32  	y				 = 7;
+}
+
+message author_list {
+	optional int32      user_head        = 1;
+	optional string     user_name        = 2;
+	optional string     user_country     = 3;
+	optional string     map_name         = 4; 
+}
+
+message smsg_challenge_finish {
+    optional int32      suc              = 1;
+	optional int32      exp              = 2;
+	optional int32      rank             = 3;
+	repeated author_list authors         = 4;
+	optional int32      jewel            = 5;
+}
+
+message challenge_rank {
+	optional int32      user_head        = 1;
+	optional string     user_name        = 2;
+	optional string     user_country     = 3;
+	optional int32	    user_id		     = 4;
+	optional int32	    user_visitor	 = 5;
+	optional int32	    user_level   	 = 6;
+	optional int32      user_index       = 7;
+	optional int32      user_life        = 8;
+}
+
+message cmsg_challenge_rank {
+	required msg_common common			= 1;
+}
+
+message smsg_challenge_rank {
+	repeated challenge_rank ranks       = 1;
+}
+
+message cmsg_challenge_buy {
+	required msg_common common			= 1;
+}
+
+message cmsg_google_pay {
+	required msg_common common			= 1;
+	required int32      id              = 2;
+	required string     package_name    = 3;
+	required string     product_id      = 4;
+	required string     purchase_token  = 5;
+}
+
+message cmsg_map_like {
+	required msg_common common			= 1;
+}
+
+message cmsg_download_map {
+	required msg_common common			= 1;
+	required int32      id              = 2;
+}
+
+message cmsg_facebook_pay {
+	required msg_common common			= 1;
+	required int32      id              = 2;
+	required string     signed_request  = 3;
+}
+
+message cmsg_mission_view {
+	required msg_common common		= 1;
+}
+
+message smsg_mission_view {
+	optional int32      life		= 1;
+	optional int32      index       = 2;
+	optional int32      hard		= 3;
+	optional int32      start		= 4;
+	optional int32		br_max		= 5;
+}
+
+message cmsg_mission_start {
+	required msg_common common			= 1;
+	required int32 hard					= 2;
+}
+
+message cmsg_mission_continue {
+	required msg_common common			= 1;
+}
+
+message cmsg_mission_replay {
+	required msg_common common			= 1;
+}
+
+message cmsg_mission_fail {
+	required msg_common common			= 1;
+	optional int32      x				= 2;
+	optional int32      y               = 3;
+}
+
+message cmsg_mission_success {
+	required msg_common common			= 1;
+	optional int32      point		    = 2;
+	optional int32      time            = 3;
+}
+
+message smsg_mission_play {
+	optional int32      user_head        = 1;
+	optional string     user_name        = 2;
+	optional string     user_country     = 3;
+	optional string     map_name         = 4;
+	optional bytes      map_data		 = 5;
+	repeated int32		x				 = 6;
+	repeated int32  	y				 = 7;
+}
+
+message smsg_mission_finish {
+    optional int32      suc              = 1;
+	optional int32      exp              = 2;
+	repeated author_list authors         = 3;
+}

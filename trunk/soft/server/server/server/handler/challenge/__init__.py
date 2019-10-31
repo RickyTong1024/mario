@@ -1,0 +1,2 @@
+__all__ = ["challenge_view_handler", "challenge_fail_handler", "challenge_replay_handler", "challenge_start_handler",
+           "challenge_success_handler", "challenge_buy_handler", "challenge_rank_handler"]

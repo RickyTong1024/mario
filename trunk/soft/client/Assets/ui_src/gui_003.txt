@@ -1,0 +1,100 @@
+{"frames": {
+
+"gkjl_jbei001.png":
+{
+	"frame": {"x":1,"y":635,"w":254,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":254,"h":276},
+	"sourceSize": {"w":254,"h":276}
+},
+"gkjl_jbei002.png":
+{
+	"frame": {"x":714,"y":358,"w":254,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":254,"h":276},
+	"sourceSize": {"w":254,"h":276}
+},
+"gkjl_jbei003.png":
+{
+	"frame": {"x":951,"y":1,"w":50,"h":48},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":1,"w":50,"h":48},
+	"sourceSize": {"w":52,"h":50}
+},
+"gkjl_jbei004.png":
+{
+	"frame": {"x":898,"y":1,"w":52,"h":50},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":52,"h":50},
+	"sourceSize": {"w":52,"h":50}
+},
+"gkjl_jbei005.png":
+{
+	"frame": {"x":414,"y":358,"w":299,"h":268},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":299,"h":268},
+	"sourceSize": {"w":299,"h":268}
+},
+"gkjl_jbei006.png":
+{
+	"frame": {"x":1,"y":1,"w":412,"h":412},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":412,"h":412},
+	"sourceSize": {"w":412,"h":412}
+},
+"lsgan_001.png":
+{
+	"frame": {"x":414,"y":239,"w":362,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":362,"h":118},
+	"sourceSize": {"w":362,"h":118}
+},
+"lsgan_002.png":
+{
+	"frame": {"x":414,"y":120,"w":362,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":362,"h":118},
+	"sourceSize": {"w":362,"h":118}
+},
+"lsgan_003.png":
+{
+	"frame": {"x":414,"y":1,"w":362,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":362,"h":118},
+	"sourceSize": {"w":362,"h":118}
+},
+"lsgan_004.png":
+{
+	"frame": {"x":414,"y":120,"w":362,"h":118},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":362,"h":118},
+	"sourceSize": {"w":362,"h":118}
+},
+"tz_yzyn001.png":
+{
+	"frame": {"x":777,"y":1,"w":120,"h":120},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":120},
+	"sourceSize": {"w":120,"h":120}
+}},
+"meta": {
+	"app": "http://www.texturepacker.com",
+	"version": "1.0",
+	"image": "gui_003.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b1ad69c864416ed2a4de06ceeb698a10$"
+}
+}

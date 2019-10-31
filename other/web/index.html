@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="盒子制造, boxmaker, 盒子世界, boxworld, 马里奥, mario, 超级玛丽, 马里奥制造, 超级马里奥制造, 马里奥兄弟, 超级马里奥兄弟">
+		<meta name="description" content="《盒子制造》是一款沙盒性质的横版过关游戏，玩家可以利用游戏中提供的各种素材来打造有趣的关卡，制造独特的游戏体验，并把自己制作的关卡通过网络上传分享，供其他玩家下载挑战">
+		<title>盒子制造</title>
+		<script type='text/javascript' src='js/jquery.min.js'></script>
+		<link rel="shortcut icon" href="image/favicon.ico" />
+		<script type="text/javascript">				   
+			function getChannelLabel()
+			{
+				var s = "web_facebook";
+				u.getUnity().SendMessage("LJSDK", "init_channel_web_callback", s);
+			}
+		</script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 960, 
+				height: 600,
+				params: {
+					enableDebugging:"0",
+					backgroundcolor: "e5722c",//背景色  
+					bordercolor: "e5722c",//边框颜色
+					logoimage: "loading/webloading_logo.png",//logo
+                    progressbarimage: "loading/webloading_tiao002.png",//加载条图片
+                    progressframeimage:"loading/webloading_tiao001.png"//加载条背景
+				}
+			};
+			var u = new UnityObject2(config);
+			jQuery(function() {
+				u.initPlugin(jQuery("#unityPlayer")[0], "boxmaker_web.unity3d?2");
+			});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			color: black;
+			background: url(image/flowerbg.jpg);
+		}
+		div.content {
+			margin: auto;
+			height: 600px;
+			width: 960px;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 600px;
+			width: 960px;
+			border: #000 1px solid;
+		}
+		
+		div.recharge {
+			text-align: center;
+			padding: 10px;
+			display: none;
+			visible:hidden;
+		}
+		
+		div.fb-like {
+			text-align: center;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<script>
+		  window.fbAsyncInit = function() {
+			FB.init({
+			  appId      : '835720273204348',
+			  xfbml      : true,
+			  version    : 'v2.5'
+			});
+		  };
+
+		  (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js";
+			 fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		   
+		  function statusChangeCallback(response) {
+			if (response.status === 'connected') {
+			  login_success();
+			} else {
+			  FB.login(function(response) {
+			    login_success();
+			  }, {scope: 'user_friends, email'});
+			}
+		  }
+
+		  function login() {
+			FB.getLoginStatus(function(response) {
+			  statusChangeCallback(response);
+			});
+		  }
+		  
+		  function login_success() {
+		    FB.api('/me?fields=id,locale', function(response) {
+			  console.log(response);
+			  u.getUnity().SendMessage("LJSDK", "login_callback_success", JSON.stringify(response));
+			});
+		  }
+		  
+		  function req_info(code) {
+			FB.api('/me?fields=currency', function(response) {
+			  console.log(response);
+			  u.getUnity().SendMessage("LJSDK", "req_info", code + " " + JSON.stringify(response));
+			});
+		  }
+		  
+		  function buyCoins(productid, requestID) {
+			var producturl = 'https://mario_facebook.yymoon.com/pay/'+productid+'.html?';
+              FB.ui({
+                      method: 'pay',
+                      action: 'purchaseitem',
+                      product: producturl,
+                      request_id: requestID,
+                      quantity: 1
+                    },
+                    verifyPayment
+                );
+			}
+
+		  function verifyPayment(data) {
+			if(!data) {
+			  alert("There was an error processing your payment. Please try again!");
+			  return;
+			}
+
+			if(data.error_code) {
+			  if(data.error_code != 1383010) {
+				alert("There was an error processing your payment."+data.error_message+" Error code:"+data.error_code);
+			  }
+			  return;
+			}
+		  }
+		</script>
+		<div class="recharge">
+			<a id="depositLink" target="_blank" onclick="hide_recharge(0);" style="line-height:20px; "><img src="image/fhyx_bt.png" style="border:0;"></a>
+			<span onclick="submit_recharge();" style="margin-left:20px;"><img src="image/gmqr_bt.png" style="border:0;"></span>
+		</div>
+		<div class="content">
+			<div id="unityPlayer"/>
+		</div>
+		<div
+		  class="fb-like"
+		  data-share="true"
+		  data-width="450"
+		  data-show-faces="true">
+		</div>
+	</body>
+</html>

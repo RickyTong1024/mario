@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f2c20bca-de23-4219-b600-55aeb8de242a</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>challenge_daemon.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>pay</Name>
+    <RootNamespace>pay</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="alipay_phone_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="alipay_win_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="base_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="alipay_web_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="challenge_daemon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="facebook_proxy.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="google_proxy.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="log_daemon.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="pay.py" />
+    <Compile Include="qihu360_handler.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="util.py">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logging.yaml" />
+    <Content Include="login.sql" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <Import Condition="Exists($(PtvsTargetsFile))" Project="$(PtvsTargetsFile)" />
+  <Import Condition="!Exists($(PtvsTargetsFile))" Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

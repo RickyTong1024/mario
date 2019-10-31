@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YYMOON</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'game/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'game/css/bootstrap-datetimepicker.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'game/css/site.css' %}" />
+    <script src="{% static 'game/js/modernizr-2.6.2.js' %}"></script>
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/" class="navbar-brand">盒子制造</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'modifyuser' %}">修改用户数据</a></li>
+                    <li><a href="{% url 'statistics' %}">登录数据汇总</a></li>
+                    <li><a href="{% url 'modifyuser' %}">地图数据汇总</a></li>
+                    <li><a href="{% url 'choose' %}">选择挑战关卡</a></li>
+                    <li><a href="{% url 'uploadmap' %}">上传地图</a></li>
+                    <li><a href="{% url 'version' %}">添加游戏版本</a></li>
+                    <li><a href="{% url 'mapversion' %}">添加地图版本</a></li>
+                    <li><a href="{% url 'createrank' %}">重新生成排行榜</a></li>
+                </ul>
+                {% include 'loginpartial.html' %}
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="{% static 'game/js/chartkick.js' %}"></script>
+    <script src="{% static 'game/js/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'game/js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'game/js/bootstrap.js' %}"></script>
+    <script src="{% static 'game/js/bootstrap-datetimepicker.js' %}"></script>
+    <script src="{% static 'game/js/respond.js' %}"></script>
+{% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; {{ year }} - yymoon-boxmaker</p>
+        </footer>
+    </div>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

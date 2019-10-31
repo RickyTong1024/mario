@@ -1,0 +1,17 @@
+﻿{% extends "layout.html" %}
+
+{% load bootstrap3 %}
+{% load chartkick %}
+
+{% block content %}
+
+<h2>数据汇总</h2>
+<div class="row">
+    <div class="col-md-8">
+        {% pie_chart  create_total with library={"title":"Browser Statistics", "titlePosition":"out"} %}
+        {% line_chart login_create with library={"title":"Super chart","width":"400px"} %}
+        {% line_chart login_login with library={"title":"Super chart","width":"400px"} %}
+    </div>
+</div>
+
+{% endblock %}

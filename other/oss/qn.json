@@ -1,0 +1,5 @@
+{
+    "src":          "D:/work/mario/other/oss/sync_dir",
+    "dest":         "qiniu:access_key=WXT_g7XYOY-1bCeefdhKYzPfVAe8Yn509qwP1l0D&secret_key=0qz6d02rsHLbMnFVZeZoAa3LS0s5P0RlG5K8DQ60&bucket=boxmaker",
+    "debug_level":  1
+}

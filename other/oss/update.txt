@@ -1,0 +1,4 @@
+http://mario.oss.yymoon.com/web/boxmaker_web.unity3d
+http://mario.oss.yymoon.com/win/version.xml
+http://mario.oss.yymoon.com/win/boxmaker_client.exe
+http://mario.oss.yymoon.com/android/

@@ -1,0 +1,37 @@
+package protocol.map;
+
+message map_data {
+	required int32  map_ver			= 1;
+	required bytes	array			= 2;
+	required int32  x_num			= 3;
+	required int32  y_num			= 4;
+	required int32  qd_y			= 5;
+	required int32  zd_y			= 6;
+	required int32  mode			= 7;
+	required int32  time			= 8;
+	required int32  map_theme		= 9;
+	required int32  no_music		= 10;
+}
+
+message map_url {
+	required int32  map_theme		= 1;
+	required bytes	array			= 2;
+}
+
+message map_data_sub {
+	required bytes	array			= 1;
+	required int32  x_num			= 2;
+	required int32  y_num			= 3;
+	required int32  qd_y			= 4;
+	required int32  zd_y			= 5;
+	required int32  map_theme		= 6;
+}
+
+message map_data1 {
+	required int32  map_ver			= 1;
+	required int32  mode			= 2;
+	required int32  time			= 3;
+	required int32  no_music		= 4;
+	required int32	end_area		= 5;
+	repeated map_data_sub maps		= 6;
+}

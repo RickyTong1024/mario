@@ -1,0 +1,37 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="laungh.MainWindow"
+        xmlns:local="clr-namespace:laungh" Title="MainWindow" Height="464" Width="640" WindowStyle="None" WindowStartupLocation="CenterScreen"
+        Background="{x:Null}" AllowsTransparency="True" MouseLeftButtonDown="DragWindow" Initialized="Window_Initialized">
+
+    <Grid Height="400" VerticalAlignment="Bottom" Margin="0,0,0,0">
+        <Image Source="/res/kcld_bj.png"/>
+        <Grid  x:Name="l_ie" Height="280" Width="612" Margin="14,45,14,75"/>
+        <Image Source="/res/boxmaker.png" Height="24" Width="24" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,12,0,0"/>
+        <Label Content="盒子制造" HorizontalAlignment="Left" Margin="40,8,0,0" VerticalAlignment="Top" Foreground="Black" FontSize="14"/>
+        <Image Source="/res/hz_logo.png" HorizontalAlignment="Center" Height="97" Margin="221,-52,219,0" VerticalAlignment="Top" Width="200"/>
+        <local:ImageButton x:Name="l_close" 
+            NormalImage="/res/button/dlq_gb_ft.png" 
+            HoverImage="/res/button/dlq_gb_sbxt.png" 
+            PressedImage="/res/button/dlq_gb_dj.png" 
+            Height="22" Width="28" Margin="608,4,4,374" Click="l_close_Click"/>
+        <local:ImageButton x:Name="l_min" 
+            NormalImage="/res/button/dlq_zxh_ft.png" 
+        	HoverImage="/res/button/dlq_zxh_sbxt.png" 
+        	PressedImage="/res/button/dlq_zxh_dj.png" 
+        	Height="22" Width="28" Margin="580,4,32,374" Click="l_min_Click"/>
+        <local:ImageButton x:Name="l_start"
+            NormalImage="/res/button/dlq_ksyx_ft.png" 
+        	HoverImage="/res/button/dlq_ksyx_sbxt.png" 
+        	PressedImage="/res/button/dlq_ksyx_dj.png" 
+            DisabledImage="/res/button/dlq_ksyx_fszt.png" 
+        	Height="54" Width="124" Margin="506,336,10,10" IsEnabled="True" Click="l_start_Click"/>
+        <ProgressBar x:Name="l_progress" HorizontalAlignment="Left" Height="21" Margin="14,359,0,0" VerticalAlignment="Top" Width="476" Value="100" Foreground="#FF00D1FF"/>
+        <Grid HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="476" Margin="14,333,0,0" Background="#7F000000"/>
+        <Label x:Name="l_state" Content="更新完成" HorizontalAlignment="Left" Margin="14,333,0,0" VerticalAlignment="Top" Foreground="White" Background="{x:Null}"/>
+        <Label Content="当前版本号" HorizontalAlignment="Left" Margin="369,333,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="1.1,0.571"/>
+        <Label x:Name="l_ver" Content="1.5" HorizontalAlignment="Left" Margin="439,333,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="7.933,0.821"/>
+    </Grid>
+
+</Window>

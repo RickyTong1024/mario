@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+		<meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+		<meta HTTP-EQUIV="expires" CONTENT="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="盒子制造, boxmaker, 盒子世界, boxworld, 马里奥, mario, 超级玛丽, 马里奥制造, 超级马里奥制造, 马里奥兄弟, 超级马里奥兄弟">
+		<meta name="description" content="《盒子制造》是一款沙盒性质的横版过关游戏，玩家可以利用游戏中提供的各种素材来打造有趣的关卡，制造独特的游戏体验，并把自己制作的关卡通过网络上传分享，供其他玩家下载挑战">
+		<title>盒子制造</title>
+		<script type='text/javascript' src='js/jquery.min.js'></script>
+		<link rel="shortcut icon" href="image/favicon.ico" />
+		<script type="text/javascript" src="http://tajs.qq.com/h5?sId=500001439" charset="UTF-8"></script>
+		<script type="text/javascript">	
+			function getChannelLabel()
+			{
+				var s = "web_yymoon";
+				u.getUnity().SendMessage("LJSDK", "init_channel_web_callback", s);
+			}
+			
+			function show_recharge(WIDout_trade_no, WIDsubject, WIDtotal_fee, WINotify_url, WIextra_common_param)
+			{
+				$("#WIDout_trade_no").val(WIDout_trade_no);
+				$("#WIDsubject").val(WIDsubject);
+				$("#WIDtotal_fee").val(WIDtotal_fee);
+				$("#WINotify_url").val(WINotify_url);
+				$("#WIextra_common_param").val(WIextra_common_param);
+				$(".recharge").show();
+			}
+			
+			function hide_recharge(type)
+			{
+				$(".recharge").hide();
+				if (type == 0)
+				{
+					u.getUnity().SendMessage("LJSDK", "web_callback", "0");
+				}
+				else
+				{
+					u.getUnity().SendMessage("LJSDK", "web_callback", "1");
+				}
+			}
+			
+			function submit_recharge()
+			{
+				hide_recharge(1);
+				$("#recharge_form").submit();	
+			}
+			
+			function addFavorite(){
+				if(document.all){
+					try{
+						window.external.addFavorite("http://mario.web.yymoon.com/","盒子制造");
+					}
+					catch(e){
+						alert("请使用CTRL+D添加收藏夹");
+					}
+				}else if (window.sidebar){
+					try{
+						window.sidebar.addPanel("盒子制造","http://mario.web.yymoon.com/","");
+					}
+					catch(e){
+						alert("请使用CTRL+D添加收藏夹");
+					}
+				}else{
+					alert("请使用CTRL+D添加收藏夹");
+				}
+			}
+			
+			function getQueryString(name) {  
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");  
+				var r = window.location.search.substr(1).match(reg);  
+				if (r != null) return unescape(r[2]);  
+				return null;
+			}
+			$(document).ready(function(){
+				var s = getQueryString("pt");
+				if (s == "fabao")
+				{
+					$("#luntan").attr("href", "http://www.ifabao.com/forum.php");
+				}
+			})
+
+		</script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 960, 
+				height: 600,
+				params: {
+					enableDebugging:"0",
+					backgroundcolor: "e5722c",//背景色  
+					bordercolor: "e5722c",//边框颜色
+					logoimage: "loading/webloading_logo.png",//logo
+                    progressbarimage: "loading/webloading_tiao002.png",//加载条图片
+                    progressframeimage:"loading/webloading_tiao001.png"//加载条背景
+				}
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "http://mario.oss.yymoon.com/web/boxmaker_web.unity3d?41");
+			});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			color: black;
+			background: url(image/flowerbg.jpg);
+		}
+		p {
+			color: rgb(255, 203, 0);
+			text-align: center;
+		}
+		p.header {
+			font-size: large;
+			font-weight:bold
+		}
+		div.content {
+			margin: auto;
+			height: 600px;
+			width: 960px;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border-width: 0px;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 600px;
+			width: 960px;
+			border: #000 1px solid;
+		}
+		
+		div.recharge {
+			text-align: center;
+			padding: 10px;
+			display: none;
+			visible:hidden;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<p class="header">盒子制造 - BoxMaker</p>
+		<div class="recharge">
+			<a id="depositLink" target="_blank" onclick="hide_recharge(0);" style="line-height:20px; "><img src="image/fhyx_bt.png" style="border:0;"></a>
+			<span onclick="submit_recharge();" style="margin-left:20px;"><img src="image/gmqr_bt.png" style="border:0;"></span>
+		</div>
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+					</a>
+				</div>
+				<div class="broken">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+						<img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63" />
+					</a>
+				</div>
+			</div>
+		</div>
+		<div style="text-align:left; width:960px; height:50px; line-height:30px; font-size:12px; color:#fff; margin:0 auto;">
+			<div style="width:240px; height:50px; line-height:50px; color:#fc0; display:block; float:left; text-align:left;">
+				<span style="width:100px; height:50px; display:block; float:left; background:url(image/bbgg.png) 0 0 no-repeat;"></span>
+				<span style="width:25px; height:30px; margin:10px 0; display:block; float:left; background: url(image/bbgg.png) -100px 0 no-repeat;"></span>
+				<span style="color:#fff">QQ群 </span>
+				<span style="color:#ff0">482288819</span>
+			</div>
+			<a id="luntan" href="http://tieba.baidu.com/f?kw=%E7%9B%92%E5%AD%90%E5%88%B6%E9%80%A0" target="_blank" style="width:68px; height:30px; margin:10px 0; display:block; float:left; background:url(image/bbgg.png) -100px -90px no-repeat; color:#fff; text-indent:35px;">论坛</a>
+			<a href="javascript:addFavorite();" style="width:68px; height:30px; margin:10px 0; display:block; float:left; background:url(image/bbgg.png) -100px -150px no-repeat; color:#fff; text-indent:35px;">收藏</a>
+			<a href="http://tieba.baidu.com/f?kw=%E7%9B%92%E5%AD%90%E5%88%B6%E9%80%A0" target="_blank" style="width:68px; height:30px; margin:10px 0; display:block; float:left; background:url(image/bbgg.png) -100px -210px no-repeat; color:#fff; text-indent:35px;">微博</a>
+			<a href="http://mario.oss.yymoon.com/win/boxmaker_client.exe" target="_blank" style="width:88px; height:30px; margin:10px 0; display:block; float:left; background:url(image/bbgg.png) -100px -120px no-repeat; color:#fff; text-indent:35px;">PC版下载</a>
+		</div>
+		<div>
+			<form id="recharge_form" action="/recharge/alipayapi.php" method="post" target="_blank">
+				<input type="hidden" id="WIDout_trade_no" name="WIDout_trade_no" value=""/>
+				<input type="hidden" id="WIDsubject" name="WIDsubject" value=""/>
+				<input type="hidden" id="WIDtotal_fee" name="WIDtotal_fee" value=""/>
+				<input type="hidden" id="WINotify_url" name="WINotify_url" value=""/>
+				<input type="hidden" id="WIextra_common_param" name="WIextra_common_param" value=""/>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

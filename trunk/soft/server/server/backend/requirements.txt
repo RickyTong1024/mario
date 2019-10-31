@@ -1,0 +1,2 @@
+django>1.9
+login form html<input type="hidden" name="next" value="/" />

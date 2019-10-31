@@ -1,0 +1,82 @@
+﻿{% extends "layout.html" %}
+
+{% load bootstrap3 %}
+
+{% block content %}
+
+<h2>最新关卡主题</h2>
+<div class="row">
+<table class="table table-bordered">
+  <tr>
+    <td><strong>地图主题</strong></td>
+    <td><strong>英文主题</strong></td>
+    <td><strong>经验</strong></td>
+    <td><strong>钻石</strong></td>
+    <td><strong>开始日期</strong></td>
+    <td><strong>结束日期</strong></td>    
+    <td><strong>关卡地图1</strong></td>
+    <td><strong>关卡地图2</strong></td>
+    <td><strong>关卡地图3</strong></td>
+    <td><strong>关卡地图4</strong></td>
+    <td><strong>关卡地图5</strong></td>
+    <td><strong>关卡地图6</strong></td>
+    <td><strong>关卡地图7</strong></td>
+    <td><strong>关卡地图8</strong></td>
+    
+  </tr>
+{% for line in lines %}  
+  <tr> 
+     <td>{{ line.cn_subject }}</td> 
+     <td>{{ line.en_subject }}</td>
+     <td>{{ line.exp }}</td>
+     <td>{{ line.jewel }}</td>
+     <td>{{ line.start_date|date:"Y-m-d" }}</td>
+     <td>{{ line.end_date|date:"Y-m-d" }}</td>
+     <td>{{ line.map1 }}</td>
+     <td>{{ line.map2 }}</td>
+     <td>{{ line.map3 }}</td>
+     <td>{{ line.map4 }}</td>
+     <td>{{ line.map5 }}</td>
+     <td>{{ line.map6 }}</td>
+     <td>{{ line.map7 }}</td>
+     <td>{{ line.map8 }}</td>
+  </tr>
+{% endfor %}    
+</table>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <section id="ChooseChallangeForm">
+            <form action="" method="post" class="form-horizontal">
+                {% csrf_token %}
+                <h4>请输入有效的地图编号</h4>
+                {% bootstrap_form form label_class='col-sm-2' field_class='col-md-10' %}
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="提交" class="btn btn-default" />
+                    </div>
+                </div>
+                {% if form.errors %}
+                <p class="validation-summary-errors">请输入有效的地图编号.</p>
+                {% endif %}
+            </form>
+        </section>
+    </div>
+    <div class="col-md-4">
+        <section id="socialLoginForm"></section>
+    </div>
+</div>
+
+<div class="row">
+<div class="panel panel-primary">
+  <div class="panel-heading">执行结果</div>
+  <div class="panel-body">
+    {% if result %}
+      {{ result }}
+    {% endif %}
+  </div>
+</div>
+</div>
+
+{% endblock %}

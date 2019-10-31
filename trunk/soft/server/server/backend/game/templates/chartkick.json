@@ -1,0 +1,10 @@
+[
+    {
+        "id": "login",
+        "title": "Monthly Average Temperature",
+        "titlePosition": "in",
+        "vAxis": {
+            "title": "Temperature (°„C)"
+        }
+    },
+]
